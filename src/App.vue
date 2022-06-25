@@ -1,17 +1,17 @@
 <template>
   <NavBar :title="siteName" />
-  <TheMinifier />
+  <Minifier />
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
-import TheMinifier from './components/TheMinifier.vue'
+import Minifier from './components/Minifier.vue'
 
 export default {
   name: 'App',
   components: {
     NavBar,
-    TheMinifier,
+    Minifier,
   },
   data() {
     return {

@@ -6,10 +6,15 @@
 export default {
   name: 'ClearButton',
   props: ['output'],
+  data() {
+    return {
+      clear: this.output,
+    }
+  },
   methods: {
     clearCss(e) {
       e.preventDefault()
-      this.output = ''
+      this.clear.reset()
     },
   },
 }

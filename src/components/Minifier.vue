@@ -15,9 +15,9 @@
         <input id="output" class="form-control" v-model="output" readonly />
       </div>
       <button @click="minifyCss" class="btn btn-primary btn-minify">Minify CSS</button>
-      <!-- <button v-if="output.length" @click="copyCss" class="btn btn-secondary btn-copy">Copy CSS</button> -->
-      <CopyButton :output="output" v-if="output.length" />
-      <ClearButton :output="output" v-if="output.length" />
+      <CopyButton v-if="output.length" :output="output" />
+      <button v-if="output.length" @click="clearCss" class="btn btn-danger btn-clear">Clear CSS</button>
+      <!-- <ClearButton :output="output" v-if="output.length" /> -->
     </form>
   </div>
 </template>
@@ -25,13 +25,13 @@
 <script>
 import * as CleanCSS from 'clean-css'
 import CopyButton from './CopyButton.vue'
-import ClearButton from './ClearButton.vue'
+// import ClearButton from './ClearButton.vue'
 
 export default {
-  name: 'TheMinifier',
+  name: 'Minifier',
   components: {
     CopyButton,
-    ClearButton,
+    // ClearButton,
   },
   data() {
     return {
@@ -56,6 +56,12 @@ export default {
       }
 
       this.output = styles
+    },
+
+    clearCss(e) {
+      e.preventDefault()
+      this.output = ''
+      this.input = ''
     },
   },
 }
