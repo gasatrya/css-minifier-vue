@@ -5,7 +5,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
 
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.plugin('polyfills').use(NodePolyfillPlugin)
   },
 

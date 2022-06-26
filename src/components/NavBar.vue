@@ -4,7 +4,7 @@
       <div class="row">
         <div class="minifier__logo text-sm-left col-md-6 col-12">{{ title }}</div>
         <div class="minifier__social text-sm-right text-md-center col-md-6 col-12">
-          <a href="https://github.com/gasatrya/css-minifier">
+          <a href="https://github.com/gasatrya/css-minifier-vue">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <g fill="#ededed" class="nc-icon-wrapper">
                 <g>
@@ -53,65 +53,65 @@
 </template>
 
 <script>
-export default {
-  name: 'NavBar',
-  props: ['title'],
-}
+  export default {
+    name: 'NavBar',
+    props: ['title'],
+  }
 </script>
 
 <style lang="scss">
-.minifier {
-  &__header {
-    background-color: var(--accent-color);
-    color: var(--white-color);
-    height: 80px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    @media (min-width: 567px) {
-      height: 50px;
-      text-align: left;
-    }
-  }
-
-  &__logo {
-    margin-bottom: 10px;
-
-    @media (min-width: 567px) {
-      margin-bottom: 0;
-    }
-  }
-
-  &__social {
-    display: flex;
-    justify-content: center;
-
-    @media (min-width: 567px) {
-      justify-content: flex-end;
-    }
-
-    a {
+  .minifier {
+    &__header {
+      background-color: var(--accent-color);
+      color: var(--white-color);
+      height: 80px;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      color: var(--white-color);
-      font-size: 14px;
-      text-decoration: none;
+      text-align: center;
 
-      &:not(:last-of-type) {
-        margin-right: 14px;
-      }
-
-      &:hover {
-        color: inherit;
+      @media (min-width: 567px) {
+        height: 50px;
+        text-align: left;
       }
     }
 
-    svg {
-      width: 24px;
-      margin-right: 5px;
+    &__logo {
+      margin-bottom: 10px;
+
+      @media (min-width: 567px) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__social {
+      display: flex;
+      justify-content: center;
+
+      @media (min-width: 567px) {
+        justify-content: flex-end;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: var(--white-color);
+        font-size: 14px;
+        text-decoration: none;
+
+        &:not(:last-of-type) {
+          margin-right: 14px;
+        }
+
+        &:hover {
+          color: inherit;
+        }
+      }
+
+      svg {
+        width: 24px;
+        margin-right: 5px;
+      }
     }
   }
-}
 </style>
