@@ -34,6 +34,7 @@
   import { ref } from 'vue'
 
   export default {
+    // eslint-disable-next-line
     name: 'Minifier',
     props: ['title'],
     setup() {
