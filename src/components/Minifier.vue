@@ -57,6 +57,7 @@
 
         if (warnings.length > 0) {
           warningMsgs.value = warnings
+          output.value = ''
           return
         } else {
           warningMsgs.value = ''
