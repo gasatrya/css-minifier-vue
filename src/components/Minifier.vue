@@ -1,30 +1,30 @@
 <template>
-  <div class="minifier__wrapper">
-    <header class="minifier__intro mb-5">
-      <h1 class="h3 text-center">{{ title }}</h1>
-      <p class="text-center">
+  <div class="container gx-5">
+    <header class="my-5">
+      <h1 class="display-4 text-center fw-bold text-light">{{ title }}</h1>
+      <p class="text-center fs-5 text-light text-opacity-75">
         A simple CSS minifier to removes the spacing, indentation, newlines, and comments. Built using
         <a href="https://vuejs.org/">Vue.js 3</a> & <a href="https://github.com/clean-css/clean-css">Clean CSS</a>
       </p>
     </header>
 
-    <form class="minifier__form">
-      <div class="form-group mb-2">
-        <label for="input">Your CSS</label>
-        <textarea class="form-control" id="input" rows="6" v-model="input"></textarea>
+    <form class="my-5">
+      <div class="mb-3">
+        <label for="input" class="form-label fw-semibold">Your CSS</label>
+        <textarea class="form-control text-light" id="input" rows="6" v-model="input"></textarea>
       </div>
-      <div class="form-group mb-4">
-        <label for="output">Compressed CSS</label>
-        <input id="output" class="form-control" v-model="output" readonly />
+      <div class="mb-3">
+        <label for="output" class="form-label fw-semibold">Compressed CSS</label>
+        <input id="output" class="form-control text-light" v-model="output" readonly />
       </div>
-      <ul class="text-danger minifier__warning" v-if="warningMsgs.length">
+      <ul class="text-danger list-unstyled" v-if="warningMsgs.length">
         <li v-for="(msg, index) in warningMsgs" :key="index">
           {{ msg }}
         </li>
       </ul>
-      <button @click.prevent="minifyCss" class="btn btn-primary btn-minify">Minify CSS</button>
-      <button v-if="output.length" @click.prevent="copyCss" class="btn btn-secondary btn-copy">Copy CSS</button>
-      <button v-if="output.length" @click.prevent="clearCss" class="btn btn-danger btn-clear">Clear CSS</button>
+      <button @click.prevent="minifyCss" class="btn btn-custom fw-semibold me-2">Minify CSS</button>
+      <button v-if="output.length" @click.prevent="copyCss" class="btn btn-secondary fw-semibold me-2">Copy CSS</button>
+      <button v-if="output.length" @click.prevent="clearCss" class="btn btn-danger fw-semibold">Clear CSS</button>
     </form>
   </div>
 </template>
@@ -66,7 +66,7 @@
         output.value = styles
       }
 
-      const copyCss = (event) => {
+      const copyCss = event => {
         navigator.clipboard.writeText(output.value).then(() => {
           event.target.textContent = 'Copied'
 
@@ -86,57 +86,4 @@
   }
 </script>
 
-<style lang="scss">
-  .minifier {
-    &__wrapper {
-      width: 100%;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .h3 {
-      font-weight: 700;
-    }
-
-    label {
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .btn-primary {
-      background-color: var(--accent-color);
-      border-color: var(--accent-color);
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:not(:disabled, .disabled):active {
-      background-color: rgb(109 104 173 / 80%);
-      border-color: var(--accent-color);
-    }
-
-    .btn {
-      margin-right: 0.5rem;
-    }
-
-    #invalid {
-      display: none;
-      color: #d54552;
-      font-weight: 700;
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-
-    textarea {
-      resize: none;
-    }
-
-    &__warning {
-      font-size: 1rem;
-      padding-left: 1rem;
-      li {
-        padding: 2px 0;
-      }
-    }
-  }
-</style>
+<style lang="scss"></style>

@@ -4,7 +4,13 @@ const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 module.exports = defineConfig({
   transpileDependencies: true,
 
-  chainWebpack: (config) => {
+  devServer: {
+    client: {
+      overlay: true,
+    },
+  },
+
+  chainWebpack: config => {
     config.plugin('polyfills').use(NodePolyfillPlugin)
   },
 
